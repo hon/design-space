@@ -169,6 +169,7 @@ function Drag(cfg) {
     this.mouseDown = false
     this.target = this.cfg && this.cfg.target || null
     this.handle = this.cfg && this.cfg.handle || null
+    this.handle && this.handle.classList.add('dragarea')
 
     // 拖动范围
     this.region = this.cfg && this.cfg.region || null
@@ -236,6 +237,7 @@ Drag.prototype = (function () {
         },
         setHandle: function (handle) {
             this.handle = handle || null
+            this.handle && this.handle.classList.add('dragarea')
             this.start()
             return this
         },
@@ -264,11 +266,11 @@ Drag.prototype = (function () {
 
 new Drag({
         target: document.querySelector('#item'),
-        handle: document.querySelector('.handle'),
+        // handle: document.querySelector('.handle'),
         region: document.querySelector('.design-space'),
         direction: 'vertical'
     })
-    .setHandle()
+    .setHandle(document.querySelector('.handle'))
 
 
 

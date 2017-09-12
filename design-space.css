@@ -39,6 +39,7 @@
 }
 .dragarea {
   cursor: move;
+  user-select: none;
 }
 .item {
   position: absolute;
