@@ -1,0 +1,44 @@
+*
+    margin: 0;
+    padding: 0
+.workspace
+    position: relative
+    background: #e
+    left: 100px
+    top:2000px
+
+
+.auxiliary-line-wrapper
+    pointer-events: none
+.auxiliary-line
+    cursor: pointer
+    &::after
+        content: ''
+        display: block
+        background: red
+        position: absolute
+        left 0
+        top 0
+    &::before
+        position: absolute
+        left 0
+        top 0
+
+    &.vertical::after
+        width: 1px
+        height: 100%
+        left 2px
+
+    &.horizontal::after
+        width: 100%
+        height: 1px
+        top: 2px
+
+
+.dragarea
+    cursor: move
+
+.item
+    position: absolute
+    top 100px
+    left 100px
