@@ -40,19 +40,19 @@ var utils = (function () {
 
 })()
 
-function Workspace(cfg) {
+function DesignSpace(cfg) {
     this.width = cfg.width || '500px'
     this.height = cfg.height || '500px'
     this.cfg = cfg
-    this.workspace = document.querySelector(this.cfg.el) || undefined
+    this.designSpace = document.querySelector(this.cfg.el) || undefined
 }
 
-Workspace.prototype = (function () {
+DesignSpace.prototype = (function () {
     return {
-        makeWorkspace: function () {
-            if (!this.workspace) {
-                this.workspace = utils.dom.strToDom(`
-                        <div class="workspace"></div> 
+        makeDesignSpace: function () {
+            if (!this.designSpace) {
+                this.designSpace = utils.dom.strToDom(`
+                        <div class="design-space"></div> 
                     `, '.auxiliary-line')
             }
             let style = {}
@@ -66,7 +66,7 @@ Workspace.prototype = (function () {
             if (rules) {
                 for (let rule in rules) {
                     if (rules.hasOwnProperty(rule)) {
-                        this.workspace.style[rule] = rules[rule]
+                        this.designSpace.style[rule] = rules[rule]
                     }
                 }
             }
@@ -82,7 +82,7 @@ Workspace.prototype = (function () {
                     position: absolute;
                     overflow: hidden;
                 "></div>`, '.auxiliary-line-wrapper')
-            this.workspace.append(this.auxLineWrapper)
+            this.designSpace.append(this.auxLineWrapper)
             return this
         },
         addAuxLine: function () {
@@ -265,7 +265,7 @@ Drag.prototype = (function () {
 new Drag({
         target: document.querySelector('#item'),
         handle: document.querySelector('.handle'),
-        region: document.querySelector('.workspace'),
+        region: document.querySelector('.design-space'),
         direction: 'vertical'
     })
     .setHandle()
@@ -334,12 +334,12 @@ AuxiliaryLine.prototype = (function () {
 
 
 let
-    ws = new Workspace({
+    ws = new DesignSpace({
         width: '500px',
         height: '500px',
-        el: '.workspace'
+        el: '.design-space'
     })
 
 ws
-    .makeWorkspace()
+    .makeDesignSpace()
     .addAuxLine()

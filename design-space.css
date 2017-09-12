@@ -22,6 +22,11 @@
   left: 0;
   top: 0;
 }
+.auxiliary-line::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .auxiliary-line.vertical::after {
   width: 1px;
   height: 100%;
