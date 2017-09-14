@@ -24,11 +24,10 @@ var utils = (function () {
             chilren: function () {},
 
             /** 事件 */
-            // 倾听
-            on: function () {},
+            on: function (el, type, fn, bubble) {},
 
             // 移除
-            off: function () {},
+            off: function (el, type, fn, bubble) {},
 
             // 触发
             emit: function () {},
@@ -263,6 +262,33 @@ Drag.prototype = (function () {
         }
     }
 })()
+
+/**
+ * 变形： 缩放，旋转，歪斜，位移
+ * 圆点
+ * topLeft, topMiddle, topRight
+ * bottomLeft, bottomMiddle, bottomRight
+ * leftMiddle
+ * rightMiddle
+ * center
+ * [x, y]
+ */
+function Tranform() {
+}
+Transform.prototype = (function() {})()
+
+/**
+ * 缩放
+ * 模式
+ * 1. 整体缩放
+ * 2. 子节点不缩放，当父节点缩放值为 x, 子节点缩放值为 1 / x
+ * 原点, 使用变形的原点
+ */
+function Scale() {}
+Scale.prototype = (function() {
+
+})()
+
 
 new Drag({
         target: document.querySelector('#item'),
